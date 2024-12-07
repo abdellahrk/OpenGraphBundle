@@ -1,0 +1,20 @@
+{
+    "name": "abdellahramadan/open-graph-bundle",
+    "description": "A bundle to add open-graph to a website",
+    "type": "symfony-bundle",
+    "require": {
+        "symfony/framework-bundle": "^7.2"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Abdellahramadan\\OpenGraphBundle\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Abdellah Ramadan",
+            "email": "ramadanabdel24@gmail.com"
+        }
+    ]
+}
