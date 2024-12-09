@@ -3,7 +3,9 @@
     "description": "A bundle to add open-graph to a website",
     "type": "symfony-bundle",
     "require": {
-        "symfony/framework-bundle": "^6.0 || ^7.0"
+        "twig/twig": "^3.16",
+        "symfony/dependency-injection": "^7.2",
+        "symfony/http-kernel": "^7.2"
     },
     "license": "MIT",
     "autoload": {
