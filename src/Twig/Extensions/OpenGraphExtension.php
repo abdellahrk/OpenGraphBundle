@@ -41,6 +41,10 @@ final class OpenGraphExtension extends AbstractExtension
             $openGraphString .= sprintf("<meta property=\"og:type\" content=\"%s\" />",  strip_tags($this->openGraph->getType()));
         }
 
+        if ($this->openGraph->getSiteName()) {
+            $openGraphString .= sprintf("<meta property=\"og:site_name\" content=\"%s\" />", $this->openGraph->getSiteName());
+        }
+
         if ($this->openGraph->getStructuredProperties()) {
             foreach ($this->openGraph->getStructuredProperties() as $property => $value) {
                 $openGraphString .= sprintf("<meta property=\"og:%s\" content=\"%s\" />", $value[0]['type'], $value[0]['content']);
@@ -50,6 +54,15 @@ final class OpenGraphExtension extends AbstractExtension
             }
         }
 
+        if ($this->openGraph->getMusicProperties()) {
+            $contents = $this->openGraph->getMusicProperties();
+
+            foreach ($contents as $content) {
+                $openGraphString .= sprintf("<meta property=\"music:%s\" content=\"%s\" />", $content['property'], $content['content']);
+            }
+        }
+
         return $openGraphString;
     }
+
 }

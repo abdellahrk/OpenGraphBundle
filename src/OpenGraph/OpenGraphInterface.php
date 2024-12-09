@@ -18,4 +18,13 @@ interface OpenGraphInterface
     public function getType(): string;
     public function addStructuredProperty(string $type, string $property, string $content): self;
     public function getStructuredProperties(): array;
+    public function setSiteName(string $siteName): self;
+    public function getSiteName(): string;
+    public function setLocale(string $locale): self;
+    public function getLocale(): string;
+    public function setAlternateLocale(string $alternateLocale): self;
+    public function getAlternateLocale(): string;
+
+    public function addMusicProperty(string $property, string $content): self;
+    public function getMusicProperties(): array;
 }

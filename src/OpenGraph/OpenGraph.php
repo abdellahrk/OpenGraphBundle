@@ -2,8 +2,6 @@
 
 namespace Abdellahramadan\OpenGraphBundle\OpenGraph;
 
-use Abdellahramadan\OpenGraphBundle\OpenGraph\OpenGraphInterface;
-
 class OpenGraph implements OpenGraphInterface
 {
     private string $title='';
@@ -11,14 +9,54 @@ class OpenGraph implements OpenGraphInterface
     private string $imageUrl='';
     private string $url='';
     private string $type='';
+    private string $locale = '';
+
+    private string $alternateLocale = '';
+    private string $siteName='';
 
     private array $structuredProperty = [
         'type' => null,
         'property' => null,
         'content' => null,
     ];
+
     private array $structuredProperties = [];
 
+    private array $musicProperties = [];
+
+
+    public function getLocale(): string
+    {
+        return $this->locale;
+    }
+
+    public function setLocale(string $locale): self
+    {
+        $this->locale = $locale;
+        return $this;
+    }
+
+    public function getAlternateLocale(): string
+    {
+        return $this->alternateLocale;
+    }
+
+    public function setAlternateLocale(string $alternateLocale): self
+    {
+        $this->alternateLocale = $alternateLocale;
+        return $this;
+    }
+
+    public function getSiteName(): string
+    {
+        return $this->siteName;
+    }
+
+    public function setSiteName(string $siteName): self
+    {
+        $this->siteName = $siteName;
+        return $this;
+    }
 
     public function setTitle(string $title): OpenGraphInterface
     {
@@ -87,8 +125,8 @@ class OpenGraph implements OpenGraphInterface
         }
 
         $this->structuredProperty['type'] = $type;
-         $this->structuredProperty['property'] = $property;
-         $this->structuredProperty['content'] = $content ;
+        $this->structuredProperty['property'] = $property;
+        $this->structuredProperty['content'] = $content ;
 
         if (!isset($this->structuredProperty[$type])) {
             $this->structuredProperty[$type] = [];
@@ -97,4 +135,20 @@ class OpenGraph implements OpenGraphInterface
         $this->structuredProperties['property'][] = $this->structuredProperty;
         return $this;
     }
+
+    public function addMusicProperty(string $property, string $content): OpenGraphInterface
+    {
+        if (is_null($property) || is_null($content)) {
+            return $this;
+        }
+
+        $this->musicProperties[] = ['property' => $property, 'content' => $content];
+        return $this;
+    }
+
+    public function getMusicProperties(): array
+    {
+        return $this->musicProperties;
+    }
+
 }
