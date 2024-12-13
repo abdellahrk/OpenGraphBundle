@@ -27,4 +27,8 @@ interface OpenGraphInterface
 
     public function addMusicProperty(string $property, string $content): self;
     public function getMusicProperties(): array;
+
+    public function addTwitterCardProperty(string $name, string $content): self;
+
+    public function getTwitterCardProperties(): array;
 }

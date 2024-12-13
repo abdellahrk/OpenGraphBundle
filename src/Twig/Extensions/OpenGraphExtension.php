@@ -62,6 +62,12 @@ final class OpenGraphExtension extends AbstractExtension
             }
         }
 
+        if ($this->openGraph->getTwitterCardProperties()) {
+            foreach ($this->openGraph->getTwitterCardProperties() as $name => $content) {
+                $openGraphString .= sprintf("<meta property=\"twitter:%s\" content=\"%s\" />", $name, $content);
+            }
+        }
+
         return $openGraphString;
     }
 
