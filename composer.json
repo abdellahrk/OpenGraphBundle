@@ -13,10 +13,19 @@
             "Abdellahramadan\\OpenGraphBundle\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4" : {
+            "Abdellahramadan\\OpenGraphBundle\\Test\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Abdellah Ramadan",
             "email": "ramadanabdel24@gmail.com"
         }
-    ]
+    ],
+    "require-dev": {
+        "symfony/test-pack": "^1.0",
+        "symfony/phpunit-bridge": "^7.2"
+    }
 }

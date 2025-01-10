@@ -17,6 +17,6 @@ return static function (ContainerConfigurator $container) {
     $services->set('open.graph.bundle', OpenGraph::class);
     $services->alias(OpenGraphInterface::class, 'open.graph.bundle');
     $services->set('open.graph.bundle.twig.extension', OpenGraphExtension::class)
-        ->tag('twig.extension')
-    ;
+        ->tag('twig.extension');
+    $services->set('open.graph', OpenGraph::class)->tag('kernel.reset', ['method' => 'reset']);
 };
