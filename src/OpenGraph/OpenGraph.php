@@ -2,7 +2,9 @@
 
 namespace Abdellahramadan\OpenGraphBundle\OpenGraph;
 
-class OpenGraph implements OpenGraphInterface
+use Monolog\ResettableInterface;
+
+class OpenGraph implements OpenGraphInterface, ResettableInterface
 {
     private string $title='';
     private string $description='';
@@ -212,4 +214,18 @@ class OpenGraph implements OpenGraphInterface
         return $this->twitterCardProperties;
     }
 
+    public function reset(): void
+    {
+        $this->title = '';
+        $this->description = '';
+        $this->imageUrl = '';
+        $this->url = '';
+        $this->type = '';
+        $this->alternateLocale = '';
+        $this->siteName = '';
+        $this->structuredProperty = [];
+        $this->structuredProperties = [];
+        $this->musicProperties = [];
+        $this->twitterCardProperties = [];
+    }
 }
