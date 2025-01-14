@@ -2,7 +2,8 @@
 
 namespace Abdellahramadan\OpenGraphBundle\OpenGraph;
 
-use Monolog\ResettableInterface;
+
+use Symfony\Component\Cache\ResettableInterface;
 
 class OpenGraph implements OpenGraphInterface, ResettableInterface
 {
