@@ -26,6 +26,7 @@
     ],
     "require-dev": {
         "symfony/test-pack": "^1.0",
-        "symfony/phpunit-bridge": "^7.2"
+        "symfony/phpunit-bridge": "^7.2",
+        "phpstan/phpstan": "^2.1"
     }
 }
