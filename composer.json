@@ -4,10 +4,10 @@
     "type": "symfony-bundle",
     "require": {
         "twig/twig": "^3.0",
-        "symfony/dependency-injection": "^5.4 || ^6.0 || ^7.0",
-        "symfony/http-kernel": "^5.4 || ^6.0 || ^7.0",
-        "symfony/cache": "^7.2",
-        "symfony/config": "^7.2"
+        "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.0",
+        "symfony/http-kernel": "^5.4 || ^6.4 || ^7.0",
+        "symfony/cache": "^5.4 || ^6.4 || ^7.0",
+        "symfony/config": "^5.4 || ^6.4 || ^7.0"
     },
     "license": "MIT",
     "autoload": {
