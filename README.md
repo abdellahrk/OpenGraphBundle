@@ -1,6 +1,8 @@
 # Open Graph Bundle 
 ### Install with Composer 
-`composer require abdellahramadan/open-graph-bundle`
+```bash
+composer require abdellahramadan/open-graph-bundle
+```
 
 ## Usage
 
@@ -34,7 +36,7 @@ This will render
 ```
 
 #### You can add structured data
-``` 
+```php
 $openGraph->addStructuredProperty('image', 'secure_url', 'https://mysite.com/test.jpg')
 ```
 this will render 
@@ -45,7 +47,9 @@ this will render
 
 ### Add Twitter card
 
-```->addTwitterCardProperty('description', 'This is an example X(Twitter) Card```
+```php
+->addTwitterCardProperty('description', 'This is an example X(Twitter) Card
+```
 will render 
 ```angular2html
 <meta name="twitter:description" content="This is an example X(Twitter) Card)" />
