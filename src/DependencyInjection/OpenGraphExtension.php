@@ -9,6 +9,5 @@ class OpenGraphExtension extends Extension
 {
         public function load(array $configs, ContainerBuilder $container): void
         {
-
         }
 }
