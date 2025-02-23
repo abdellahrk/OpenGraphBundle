@@ -17,17 +17,22 @@ class OpenGraphBundle extends AbstractBundle
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {
         $container->import('../config/services.php');
+        $container->parameters()->set('open_graph', $config['defaults']);
     }
 
     public function configure(DefinitionConfigurator $definition): void
     {
        $definition->rootNode()
-           ->children()
-               ->scalarNode('og_title')->info('og_title')->end()
-                ->scalarNode('og_description')->info('og_description')->end()
+            ->children()
+                ->arrayNode('defaults')
+                    ->children()
+                        ->scalarNode('og_sitename')->info('Default og sitename')->end()
+                        ->scalarNode('og_type')->info('Default og type')->end()
+                        ->scalarNode('og_title')->info('Default og title')->end()
+                        ->scalarNode('og_description')->info('Default og description')->end()
+                        ->scalarNode('og_url')->info('Default og URL')->end()
+                    ->end()
+                ->end()
            ->end();
-       ;
-
     }
-
 }
