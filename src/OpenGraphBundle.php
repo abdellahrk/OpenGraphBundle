@@ -17,8 +17,9 @@ class OpenGraphBundle extends AbstractBundle
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {
         $container->import('../config/services.php');
-        if ($config['defaults']) {
-            $container->parameters()->set('open_graph', $config['defaults']);
+
+        if (isset($config['default_og'])) {
+            $container->parameters()->set('open_graph', $config['default_og']);
         }
     }
 
@@ -26,15 +27,15 @@ class OpenGraphBundle extends AbstractBundle
     {
        $definition->rootNode()
             ->children()
-                ->arrayNode('defaults')
-                    ->children()
-                        ->scalarNode('og_sitename')->info('Default og sitename')->end()
-                        ->scalarNode('og_type')->info('Default og type')->end()
-                        ->scalarNode('og_title')->info('Default og title')->end()
-                        ->scalarNode('og_description')->info('Default og description')->end()
-                        ->scalarNode('og_url')->info('Default og URL')->end()
+                ->arrayNode('default_og')
+                            ->children()
+                                ->scalarNode('sitename')->info('Default og sitename')->end()
+                                ->scalarNode('type')->info('Default og type')->end()
+                                ->scalarNode('title')->info('Default og title')->end()
+                                ->scalarNode('description')->info('Default og description')->end()
+                                ->scalarNode('url')->info('Default og URL')->end()
 
-                    ->end()
+                            ->end()
                 ->end()
            ->end();
     }

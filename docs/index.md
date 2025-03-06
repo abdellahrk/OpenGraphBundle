@@ -1,16 +1,18 @@
 ## Usage
 
-### Add to template file
+### Add the template tag
 Add ```{{ open_graph() }}``` to the base template or any page where the meta information will be injected
 
-You can define some defaults values in the `config/packages/open_graph.yaml` like:
+
+### Configuration
+You can set some default values under `config/packages/open_graph.yaml`
 ```yaml
 open_graph:
-  defaults:
-      og_description: Default description for all pages
-      og_title: Default title
-      og_url: https://my-og.com
-      og_sitename: Default website name
+  default_og:
+      title: Default title
+      description: Default description for all pages
+      url: https://my-og.com
+      sitename: Default website name
 ```
 
 ### Add meta inforation
@@ -28,7 +30,7 @@ class HomeController extends AbstractController
             ->setSiteName('My Blog')
         ;
             ...
-        return $this-render('index.html.twig');
+        return $this->render('index.html.twig');
     }
 }
 ```
@@ -52,7 +54,7 @@ this will render
 ### Add Twitter card
 
 ```php
-->addTwitterCardProperty('description', 'This is an example X(Twitter) Card
+$openGraph->addTwitterCardProperty('description', 'This is an example X(Twitter) Card
 ```
 will render
 ```html
