@@ -1,67 +1,46 @@
 # Open Graph Bundle 
-### Install with Composer 
-```bash
+
+Installation
+============
+
+Make sure Composer is installed globally, as explained in the
+[installation chapter](https://getcomposer.org/doc/00-intro.md)
+of the Composer documentation.
+
+Applications that use Symfony Flex
+----------------------------------
+
+Open a command console, enter your project directory and execute:
+
+```console
 composer require abdellahramadan/open-graph-bundle
 ```
 
-## Usage
+Applications that don't use Symfony Flex
+----------------------------------------
 
-### Add to template file
-Add ```{{ open_graph() }}``` to the base template or any page where the meta information will be injected
+### Step 1: Download the Bundle
 
-You can define some defaults values in the `config/packages/open_graph.yaml` like:
-```yaml
-open_graph:
-  defaults:
-      og_description: Default description for all pages
-      og_title: Default title
-      og_url: https://my-og.com
-      og_sitename: Default website name
+Open a command console, enter your project directory and execute the
+following command to download the latest stable version of this bundle:
+
+```console
+composer require abdellahramadan/open-graph-bundle
 ```
 
-### Add meta inforation
-In your controller, type-hint `OpenGraphInterface`
+### Step 2: Enable the Bundle
 
-### Example
-```php
-class HomeController extends AbstractController
-{
-    public function index(OpenGraphInterface $openGraph): Response
-    {
-        $openGraph
-            ->setTitle('My website')
-            ->setDescription('Some descriptions ...')
-            ->setSiteName('My Blog')
-        ;
-            ...
-        return $this-render('index.html.twig');
-    }
-}
-```
-This will render
-```html
-<meta property="og:title" content="My website">
-<meta property="og:description" content="Some descriptions ...">
-<meta property="og:site_name" content="My Blog">
-```
-
-#### You can add structured data
-```php
-$openGraph->addStructuredProperty('image', 'secure_url', 'https://mysite.com/test.jpg')
-```
-this will render 
-
-```html
-<meta property="og:image:secure_url" content="https://mysite.com/test.jpg" />
-```
-
-### Add Twitter card
+Then, enable the bundle by adding it to the list of registered bundles
+in the `config/bundles.php` file of your project:
 
 ```php
-->addTwitterCardProperty('description', 'This is an example X(Twitter) Card
-```
-will render 
-```html
-<meta name="twitter:description" content="This is an example X(Twitter) Card)" />
+// config/bundles.php
+
+return [
+    // ...
+    Abdellahramadan\OpenGraph\OpenGraphBundle::class => ['all' => true],
+];
 ```
 
+
+Full documentation and examples here: [Documentation](docs/index.md)

@@ -23,26 +23,28 @@ final class OpenGraphExtension extends AbstractExtension
         $openGraphString = '';
         $defaults = $this->parameterBag->get('open_graph');
 
-        if ($this->openGraph->getTitle() === '' && array_key_exists('og_title', $defaults)) {
-            $this->openGraph->setTitle($defaults['og_title']);
-        }
+        if (!empty($defaults)) {
+            if ($this->openGraph->getTitle() === '' && array_key_exists('og_title', $defaults)) {
+                $this->openGraph->setTitle($defaults['og_title']);
+            }
 
-        if ($this->openGraph->getDescription() === '' && array_key_exists('og_description', $defaults)) {
-            $this->openGraph->setDescription($defaults['og_description']);
-        }
+            if ($this->openGraph->getDescription() === '' && array_key_exists('og_description', $defaults)) {
+                $this->openGraph->setDescription($defaults['og_description']);
+            }
 
-        if ($this->openGraph->getSiteName() === '' && array_key_exists('og_sitename', $defaults)) {
-            $this->openGraph->setSiteName($defaults['og_sitename']);
-        }
+            if ($this->openGraph->getSiteName() === '' && array_key_exists('og_sitename', $defaults)) {
+                $this->openGraph->setSiteName($defaults['og_sitename']);
+            }
 
-        if ($this->openGraph->getUrl() === '' && array_key_exists('og_url', $defaults)) {
-            $this->openGraph->setUrl($defaults['og_url']);
-        }
+            if ($this->openGraph->getUrl() === '' && array_key_exists('og_url', $defaults)) {
+                $this->openGraph->setUrl($defaults['og_url']);
+            }
 
-        if ($this->openGraph->getType() === '' && array_key_exists('og_type', $defaults)) {
-            $this->openGraph->setType($defaults['og_type']);
+            if ($this->openGraph->getType() === '' && array_key_exists('og_type', $defaults)) {
+                $this->openGraph->setType($defaults['og_type']);
+            }
         }
-
+        
         if ($this->openGraph->getTitle() !== '') {
             $openGraphString .=  sprintf('<meta property="og:title" content="%s" />', strip_tags($this->openGraph->getTitle()));
         }
