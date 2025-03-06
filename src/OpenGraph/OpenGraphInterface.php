@@ -4,11 +4,11 @@ namespace Abdellahramadan\OpenGraphBundle\OpenGraph;
 
 interface OpenGraphInterface
 {
-    public function setTitle(string $title): self;
+    public function setTitle(string $title): static;
     public function getTitle(): string;
 
     public function getDescription(): string;
-    public function setDescription(string $description): self;
+    public function setDescription(string $description): static;
 
     public function setImage(string $image): self;
     public function getImage(): string;

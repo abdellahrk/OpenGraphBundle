@@ -81,7 +81,7 @@ class OpenGraph implements OpenGraphInterface, ResettableInterface
      * @param string $title The title of your object as it should appear within the graph, e.g., "The Open Graph".
      * @return OpenGraphInterface
      */
-    public function setTitle(string $title): OpenGraphInterface
+    public function setTitle(string $title): static
     {
         $this->title = $title;
         return $this;
@@ -101,12 +101,16 @@ class OpenGraph implements OpenGraphInterface, ResettableInterface
      * @param string $description A one to two sentence description of your object.
      * @return OpenGraphInterface
      */
-    public function setDescription(string $description): OpenGraphInterface
+    public function setDescription(string $description): static
     {
         $this->description = $description;
         return $this;
     }
 
+    /**
+     * @param string $image
+     * @return OpenGraphInterface
+     */
     public function setImage(string $image): OpenGraphInterface
     {
         $this->imageUrl = $image;

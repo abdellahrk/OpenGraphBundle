@@ -17,7 +17,9 @@ class OpenGraphBundle extends AbstractBundle
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {
         $container->import('../config/services.php');
-        $container->parameters()->set('open_graph', $config['defaults']);
+        if ($config['defaults']) {
+            $container->parameters()->set('open_graph', $config['defaults']);
+        }
     }
 
     public function configure(DefinitionConfigurator $definition): void
@@ -31,6 +33,7 @@ class OpenGraphBundle extends AbstractBundle
                         ->scalarNode('og_title')->info('Default og title')->end()
                         ->scalarNode('og_description')->info('Default og description')->end()
                         ->scalarNode('og_url')->info('Default og URL')->end()
+
                     ->end()
                 ->end()
            ->end();
